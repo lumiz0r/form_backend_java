@@ -3,7 +3,6 @@ package com.example.backend_forms;
 import java.util.List;
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(ObjectId id) {
+    public Optional<User> getUserById(String id) {
         return userRepository.findById(id);
+    }
+
+    public User createUser(User user) {
+        return userRepository.insert(user);
     }
 }
