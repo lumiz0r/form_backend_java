@@ -3,6 +3,7 @@ package com.example.backend_forms;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +23,9 @@ public class UserService {
 
     public User createUser(User user) {
         return userRepository.insert(user);
+    }
+
+    public void deleteUserById(ObjectId id) {
+        userRepository.deleteById(id);
     }
 }
